@@ -20,7 +20,7 @@ jobs:
 
     - name: config push
       env:
-        SIGNING_KEY: ${{ secrets.PUSH_TOKEN }}
+        PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
       if: ${{ env.PUSH_TOKEN != '' }}
       run: |
         echo "PUSH_TOKEN=${{ secrets.PUSH_TOKEN }}" >> $GITHUB_ENV
