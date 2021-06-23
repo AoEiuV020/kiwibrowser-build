@@ -35,7 +35,8 @@ jobs:
     - run: ./script/maximize_build_space.sh
     - run: ./script/download_depot.sh
     - run: ./script/download_cipd.sh
-    - run: ./script/src_prepare.sh
+    - run: ./script/download_src.sh
+    - run: ./script/gen.sh
     - run: ./script/auto_kill.sh
     - run: ./script/build_step.sh base
     - run: ./script/build_step.sh chrome_java

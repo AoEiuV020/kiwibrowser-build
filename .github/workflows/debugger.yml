@@ -37,7 +37,8 @@ jobs:
         . ./script/maximize_build_space.sh
         . ./script/download_depot.sh
         . ./script/download_cipd.sh
-        . ./script/src_prepare.sh
+        . ./script/download_src.sh
+        . ./script/gen.sh
         EOF
 
     - name: keepalive
