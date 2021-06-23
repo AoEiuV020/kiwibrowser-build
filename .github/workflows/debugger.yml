@@ -29,6 +29,17 @@ jobs:
         git config --global user.email "aoeiuv020@gmail.com"
         git config --global user.name "AoEiuV020"
 
+    - name: save prepare.sh
+      run: |
+        cat > ./script/prepare.sh <<EOF
+        . ./script/download_ccache.sh
+        . ./script/create_ccache_config.sh
+        . ./script/maximize_build_space.sh
+        . ./script/download_depot.sh
+        . ./script/download_cipd.sh
+        . ./script/src_prepare.sh
+        EOF
+
     - name: keepalive
       run: |
         touch /tmp/keepalive
