@@ -45,8 +45,5 @@ jobs:
     - name: keepalive
       run: |
         touch /tmp/keepalive
-    - name: Setup Debug Session
-      env:   
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      uses: csexton/debugger-action@master
+    - uses: csexton/debugger-action@master
 
