@@ -6,7 +6,7 @@ then
     exit 1
 fi
 test -f "$FLAG_STOP" && echo skip $task && exit 0 || echo ninja $task
-cd $(dirname $0)/../src
+cd "$ROOT/src"
 ninja -C out/arm64/ $task || ( test $? == 143 && echo ninja canceld )
 if test -n "$PUSH_TOKEN"
 then

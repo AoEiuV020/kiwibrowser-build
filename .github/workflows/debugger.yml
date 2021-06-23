@@ -19,6 +19,7 @@ jobs:
         echo "START_TIME=$(date '+%s')" >> $GITHUB_ENV
         mkdir -p "$PWD/run"
         echo "FLAG_STOP=$PWD/run/ninjaStop" >> $GITHUB_ENV
+        echo "ROOT=$PWD" >> $GITHUB_ENV
 
     - name: config push
       env:
@@ -31,14 +32,14 @@ jobs:
 
     - name: save prepare.sh
       run: |
-        cat > ./script/prepare.sh <<EOF
-        . ./script/download_ccache.sh
-        . ./script/create_ccache_config.sh
-        . ./script/maximize_build_space.sh
-        . ./script/download_depot.sh
-        . ./script/download_cipd.sh
-        . ./script/download_src.sh
-        . ./script/gen.sh
+        cat > $ROOT/script/prepare.sh <<EOF
+        . $ROOT/script/download_ccache.sh
+        . $ROOT/script/create_ccache_config.sh
+        . $ROOT/script/maximize_build_space.sh
+        . $ROOT/script/download_depot.sh
+        . $ROOT/script/download_cipd.sh
+        . $ROOT/script/download_src.sh
+        . $ROOT/script/gen.sh
         EOF
 
     - name: keepalive
